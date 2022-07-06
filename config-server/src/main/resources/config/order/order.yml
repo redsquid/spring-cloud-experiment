@@ -1,0 +1,27 @@
+info:
+  title: Order service
+  profile: default
+
+server:
+  port: 8000
+
+spring:
+  # ===== DataSource =====
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://order-db:5432/postgres
+    username: postgres
+    password: postgres
+
+  # ===== Rabbit MQ =====
+  rabbitmq:
+    host: rabbit
+#    port: 8100
+    username: guest
+    password: guest
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, env

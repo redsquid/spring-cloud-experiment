@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+
+  eureka-server:
+    build: ../eureka-server
+    image: redsquid/eureka-server:1.0
+    ports:
+      - 8070:8070
+    networks:
+      - ms-net
+
+networks:
+  ms-net:

@@ -1,0 +1,50 @@
+version: "3.9"
+services:
+  rabbit:
+    image: rabbitmq:management
+    ports:
+      - 5672:5672
+    networks:
+      - ms-net
+
+  order-db:
+    image: postgres
+    ports:
+      - 5432:5432
+    networks:
+      - ms-net
+    environment:
+      POSTGRES_PASSWORD: postgres
+
+  keycloak-db:
+    image: postgres
+    volumes:
+      - /mnt/postgres_data/keycloak_db:/var/lib/postgresql/data
+    networks:
+      - ms-net
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: password
+
+  keycloak:
+    image: jboss/keycloak
+    restart: always
+    environment:
+      DB_VENDOR: POSTGRES
+      DB_ADDR: keycloak-db
+      DB_DATABASE: keycloak
+      DB_USER: keycloak
+      DB_SCHEMA: public
+      DB_PASSWORD: password
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+    ports:
+      - 8080:8080
+    depends_on:
+      - keycloak-db
+    networks:
+      - ms-net
+
+networks:
+  ms-net:

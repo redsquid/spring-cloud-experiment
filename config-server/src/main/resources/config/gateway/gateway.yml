@@ -1,0 +1,37 @@
+server:
+  port: 8072
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true #true is by default
+    fetchRegistry: true      #true is by default
+    serviceUrl:
+      defaultZone: http://eureka-server:8070/eureka/
+
+spring:
+  zipkin:
+    baseUrl: zipkin:9411
+  cloud:
+    gateway:
+      discovery: #can be deleted if we don't need automated mapping
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
+      routes:
+        - id: accounting
+          uri: lb://accounting
+          predicates:
+            - Path=/acc/**
+          filters:
+            - RewritePath=/acc/(?<path>.*), /$\{path}
+  sleuth:
+    sampler:
+      percentage: 1
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, env, gateway

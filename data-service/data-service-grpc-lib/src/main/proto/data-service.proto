@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+//option java_package = "ru.redsquid.examples.ms.data.grpc";
+
+service DataService {
+
+  rpc CreateStorage(StorageDetails) returns (StorageResponse) {}
+
+  rpc Upload(stream Chunk) returns (Summary) {}
+
+  rpc Download(StorageDetails) returns (stream Chunk) {}
+}
+
+message StorageDetails {
+  string ownerId = 1;
+  int64 size = 2;
+}
+
+message StorageResponse {
+  string storageId = 1;
+}
+
+message Chunk {
+  bytes data = 1;
+}
+
+message Summary {
+  int64 stored = 1;
+}

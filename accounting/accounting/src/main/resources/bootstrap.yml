@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: accounting
+  profiles:
+    active: prod
+
+  cloud:
+    config:
+      uri: http://config-server:8071

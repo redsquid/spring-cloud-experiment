@@ -1,0 +1,9 @@
+server:
+  port: 8004
+
+spring:
+  rabbitmq:
+    host: rabbit
+    #    port: 8100
+    username: guest
+    password: guest

@@ -1,0 +1,45 @@
+version: "3.9"
+services:
+
+  gateway:
+    build: ../gateway/
+    image: redsquid/gateway:1.0
+    ports:
+      - 8072:8072
+    networks:
+      - ms-net
+
+  order:
+    build: ../order/
+    image: redsquid/order:1.0
+    ports:
+      - 8000:8000
+    networks:
+      - ms-net
+
+  store0:
+    build: ../store/store/
+    image: redsquid/store:1.0
+    networks:
+      - ms-net
+
+  store1:
+    build: ../store/store/
+    image: redsquid/store:1.0
+    networks:
+      - ms-net
+
+  accounting:
+    build: ../accounting/accounting/
+    image: redsquid/accounting:1.0
+    networks:
+      - ms-net
+
+  notification:
+    build: ../notification
+    image: redsquid/notification:1.0
+    networks:
+      - ms-net
+
+networks:
+  ms-net:

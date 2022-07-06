@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+
+  config-server:
+    build: ../config-server
+    image: redsquid/config-server:1.0
+    ports:
+      - 8071:8071
+    networks:
+      - ms-net
+
+networks:
+  ms-net:

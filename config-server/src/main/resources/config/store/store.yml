@@ -1,0 +1,20 @@
+server:
+  port: 9002
+
+spring:
+  #  main:
+  #    banner-mode: "off"
+  rabbitmq:
+    host: rabbit
+    #    port: 8100
+    username: guest
+    password: guest
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true #true is by default
+    fetchRegistry: true      #true is by default
+    serviceUrl:
+      defaultZone: http://eureka-server:8070/eureka/

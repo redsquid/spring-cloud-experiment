@@ -1,0 +1,3 @@
+FROM openjdk:11
+COPY target/eureka-server-1.0.jar /
+CMD ["java", "-jar", "/eureka-server-1.0.jar"]

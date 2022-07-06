@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: notification
+  profiles:
+    active: default
+
+  cloud:
+    config:
+      uri: http://config-server:8071

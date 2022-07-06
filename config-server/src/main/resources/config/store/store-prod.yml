@@ -1,0 +1,23 @@
+server:
+  port: 8002
+
+spring:
+  zipkin:
+    baseUrl: zipkin:9411
+  rabbitmq:
+    host: rabbit
+    #    port: 8100
+    username: guest
+    password: guest
+  sleuth:
+    sampler:
+      percentage: 1
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true #true is by default
+    fetchRegistry: true      #true is by default
+    serviceUrl:
+      defaultZone: http://eureka-server:8070/eureka/

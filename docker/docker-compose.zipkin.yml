@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  zipkin:
+    image: openzipkin/zipkin
+    environment:
+      - STORAGE_TYPE=elasticsearch
+      - "ES_HOSTS=elasticsearch:9300"
+      - EUREKA_URL=http://eureka-server:8070/eureka/
+      - ID=zipkin
+    ports:
+      - 9411:9411
+    networks:
+      - ms-net
+
+networks:
+  ms-net:

@@ -1,0 +1,21 @@
+app:
+  version: @project.version@
+
+spring:
+#  main:
+#    banner-mode: "off"
+  banner:
+    location: classpath:/banner.txt
+  liquibase:
+    change-log: classpath:liquibase/liquibase-changelog.xml
+    enabled: true
+
+
+# ===== Swagger ======
+# See ru.redsquid.examples.ms.order.config.SwaggerConfig
+#
+# json output
+# http://localhost:8000/v2/api-docs
+# ui
+# http://localhost:8000/swagger-ui/index.html
+

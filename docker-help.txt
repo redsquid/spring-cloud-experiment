@@ -1,0 +1,31 @@
+docker run --network host
+
+Local
+Запуск rabbitmq
+docker run -d --name rabbit -p 5672:5672 -p 15672:15672 rabbitmq:management
+
+Запуск postgre
+docker run -d --name order-db -p 5432:5432 -e POSTGRES_PASSWORD=postgres postgres
+
+
+Docker
+
+docker network create ms-net
+
+# docker network connect mynet rabbit
+
+Запуск rabbitmq
+docker run -d --name rabbit --network=ms-net rabbitmq:management
+
+Запуск postgre
+docker run -d --name order-db --network=ms-net -e POSTGRES_PASSWORD=postgres postgres
+
+
+Запуск Order
+docker run -d --name order -p 8000:8000 --network=ms-net redsquid/order:1.0
+
+Запуск Store
+docker run -d --name store -p 8002:8002 --network=ms-net redsquid/store:1.0
+
+Запуск Accounting
+docker run -d --name accounting -p 8004:8004 --network=ms-net redsquid/accounting:1.0
