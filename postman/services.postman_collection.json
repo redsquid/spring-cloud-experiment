@@ -1,0 +1,170 @@
+{
+	"info": {
+		"_postman_id": "f0069875-84d1-4e58-864e-f9b0666dc0e9",
+		"name": "services",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "store: items",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8002/ms/store/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"ms",
+						"store",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "order: create",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Jonny\",\n  \"phone\": \"12345\",\n  \"items\": [\n    1, 2\n  ],\n  \"notification\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/ms/order",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"ms",
+						"order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "order: notification",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/ms/order/order-{{order_id}}/notification",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"ms",
+						"order",
+						"order-{{order_id}}",
+						"notification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "accounting: paid",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8004/ms/accounting/order-{{order_id}}/paid",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8004",
+					"path": [
+						"ms",
+						"accounting",
+						"order-{{order_id}}",
+						"paid"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "store: start",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8002/ms/store/order-{{order_id}}/start",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"ms",
+						"store",
+						"order-{{order_id}}",
+						"start"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "store: ready",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8002/ms/store/order-{{order_id}}/ready",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"ms",
+						"store",
+						"order-{{order_id}}",
+						"ready"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "notification:",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://notification:8006/ms/notification",
+					"protocol": "http",
+					"host": [
+						"notification"
+					],
+					"port": "8006",
+					"path": [
+						"ms",
+						"notification"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

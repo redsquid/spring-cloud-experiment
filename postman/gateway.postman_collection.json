@@ -1,0 +1,211 @@
+{
+	"info": {
+		"_postman_id": "d3d4ae14-b813-4896-8753-914d04d27a83",
+		"name": "gateway",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "routes",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8072/actuator/gateway/routes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8072",
+					"path": [
+						"actuator",
+						"gateway",
+						"routes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actuator",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8072/actuator/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8072",
+					"path": [
+						"actuator",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get items",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8072/store/ms/store/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8072",
+					"path": [
+						"store",
+						"ms",
+						"store",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJUVXBZOVU0TS11bWRyM0VmOW1MTmxOamVxRm9ZSlBLS0dSMkM0UkJMX3F3In0.eyJleHAiOjE2Mjk1Njk3MzEsImlhdCI6MTYyOTU2OTQzMSwianRpIjoiM2VmODg4NzEtNDIwYS00YmUwLWE5YzItYWI1NWZmZjkyMjI2IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2F1dGgvcmVhbG1zL21zLXJlYWxtIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjEzNThhMDEyLTgyMmItNDk1Zi1iMjcyLWEzMjM3MmY5YTYyNiIsInR5cCI6IkJlYXJlciIsImF6cCI6Im1zLWNsaWVudCIsInNlc3Npb25fc3RhdGUiOiI5MWM3MDRhMi1jZjUxLTQ3YTctOGI1NC1mYTI0OWU2M2JkMTQiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbIioiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm1zLWFkbWluIiwiZGVmYXVsdC1yb2xlcy1tcy1yZWFsbSIsIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJtcy1jbGllbnQiOnsicm9sZXMiOlsiQURNSU4iXX0sImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsInNpZCI6IjkxYzcwNGEyLWNmNTEtNDdhNy04YjU0LWZhMjQ5ZTYzYmQxNCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiYWRtaW4ifQ.Tfgx8k9FtDw_gL-n5-AUO0JZ7_GjCD9_50K_Nl-KXZn5oMkdnpM8WJyTQYlPrXhgrv0n1HKXS_zCsbOGLG8Ks_lL2TnvP42uzXItl4FPOjcjyMqpkGrZWgLgiE165o3Um-4xmOZQ6JTkm3jgm-2xLgeoEL-pJmaKhs0JNqVfa0Z2xtGiDS0vrzBdpmiMYJmKC1TnQUv-uiEFAeTtso9fb8scGasz-_4XXxAlLZzaAAR4IYgyRtUAsRugdhoXIGRGnUMfYp4mBaagkGNHnb-XHRm2zAXPFHIxQi58HR0Nblx5qrD1vHKqDkjHkEALJNcT9MBW11lOxeJskCjF63j7eQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Jonny\",\n  \"phone\": \"12345\",\n  \"items\": [\n    1, 2\n  ],\n  \"notification\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8072/order/ms/order",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8072",
+					"path": [
+						"order",
+						"ms",
+						"order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "paid",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8072/acc/ms/accounting/order-{{order_id}}/paid",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8072",
+					"path": [
+						"acc",
+						"ms",
+						"accounting",
+						"order-{{order_id}}",
+						"paid"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "start",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8072/store/ms/store/order-{{order_id}}/start",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8072",
+					"path": [
+						"store",
+						"ms",
+						"store",
+						"order-{{order_id}}",
+						"start"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ready",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8072/store/ms/store/order-{{order_id}}/ready",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8072",
+					"path": [
+						"store",
+						"ms",
+						"store",
+						"order-{{order_id}}",
+						"ready"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "notification",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "Hello world"
+				},
+				"url": {
+					"raw": "http://localhost:8072/order/ms/order/order-{{order_id}}/notification",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8072",
+					"path": [
+						"order",
+						"ms",
+						"order",
+						"order-{{order_id}}",
+						"notification"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

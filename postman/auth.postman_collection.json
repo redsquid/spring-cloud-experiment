@@ -1,0 +1,151 @@
+{
+	"info": {
+		"_postman_id": "d7edc71c-bf54-4b57-b6e6-a3d3f7991cc7",
+		"name": "auth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "token ADMIN",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "ms-client",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "96cb9ee2-4966-480b-bbdb-fe5fdd2bf80d",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://keycloak:8080/auth/realms/ms-realm/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"keycloak"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"realms",
+						"ms-realm",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "token USER",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "ms-client",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "96cb9ee2-4966-480b-bbdb-fe5fdd2bf80d",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://keycloak:8080/auth/realms/ms-realm/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"keycloak"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"realms",
+						"ms-realm",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "auth",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://keycloak:8080/auth/realms/ms-realm/protocol/openid-connect/auth",
+					"protocol": "http",
+					"host": [
+						"keycloak"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"realms",
+						"ms-realm",
+						"protocol",
+						"openid-connect",
+						"auth"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
